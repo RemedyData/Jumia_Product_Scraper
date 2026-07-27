@@ -45,7 +45,7 @@ class JumiaSitemapSpider(scrapy.Spider):
         ]
 
         for href in product_links:
-            # ✅ Only follow real product pages (ending in .html)
+            # Only follow real product pages (ending in .html)
             if href.endswith(".html") and any(kw in href for kw in keywords):
                 yield scrapy.Request(url=href, callback=self.parse_product)
 
